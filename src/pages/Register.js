@@ -9,7 +9,7 @@ const Register = () => {
       dispatcher={registerUser}
       upOrIn="up"
       alreadyOrNot="Already registered"
-      alreadyOrNotPath="/login"
+      alreadyOrNotPath="/"
       buttonName="Register"
       createOrLogin="Login"
       successMessage="Registered successfully"

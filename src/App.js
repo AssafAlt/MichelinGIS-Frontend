@@ -13,24 +13,17 @@ const AllReviews = lazy(() => import("./pages/AllReviews"));
 
 function App() {
   const { user } = useSelector((state) => state.auth);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (user) {
-      console.log(user);
-      navigate("/home");
-    }
-  }, [user, navigate]);
 
   return (
-    <>
+    <div>
       <Navbar />
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
           {user && <Route path="/home" element={<Map />} />}
 
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/addrest" element={<AddPoint />} />
           <Route path="/:restName" element={<AllReviews />} />
         </Routes>
       </Suspense>
@@ -45,7 +38,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
-    </>
+    </div>
   );
 }
 

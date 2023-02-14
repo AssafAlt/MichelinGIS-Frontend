@@ -1,18 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../features/auth/authSlice";
 
 const Navbar = () => {
   const { user } = useSelector((state) => state.auth);
+  const [isAdmin, setIsAdmin] = useState();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const logOutHandler = () => {
-    dispatch(logout());
-    navigate("/login");
+  const logOutHandler = async () => {
+    await dispatch(logout());
+    setIsAdmin(false);
+    navigate("/");
   };
-  useEffect(() => {}, [dispatch, user]);
+  useEffect(() => {
+    if (user) {
+      console.log(user.user);
+      if (user.user === "admin@admin.com") {
+        setIsAdmin(true);
+      }
+    }
+
+    console.log(isAdmin);
+  }, [dispatch, user]);
 
   return (
     <nav>
@@ -24,9 +35,28 @@ const Navbar = () => {
             </h1>
           </div>
           <div className="flex space-x-4 items-center">
-            {!user ? (
+            {user && (
               <>
-                <Link to="/login" className="text-gray-800 text-sm">
+                <button
+                  onClick={logOutHandler}
+                  className="bg-indigo-600 px-4 py-2 rounded text-white
+                  hover:bg-indigo-500 text-sm"
+                >
+                  LOGOUT
+                </button>
+              </>
+            )}
+            {isAdmin && (
+              <>
+                <Link to="/addrest" className="text-gray-800 text-sm">
+                  ADD RESTAURANT
+                </Link>
+              </>
+            )}
+            {!user && (
+              <>
+                {" "}
+                <Link to="/" className="text-gray-800 text-sm">
                   LOGIN
                 </Link>
                 <Link
@@ -36,14 +66,6 @@ const Navbar = () => {
                   REGISTER
                 </Link>
               </>
-            ) : (
-              <button
-                onClick={logOutHandler}
-                className="bg-indigo-600 px-4 py-2 rounded text-white
-                  hover:bg-indigo-500 text-sm"
-              >
-                LOGOUT
-              </button>
             )}
           </div>
         </div>
