@@ -15,7 +15,7 @@ const AddReview = (props) => {
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoading, isSuccess, isError } = useSelector((state) => state.auth);
+  const { isSuccess, isError } = useSelector((state) => state.review);
 
   const onSubmit = (data) => {
     dispatch(addReview(data));
@@ -29,12 +29,11 @@ const AddReview = (props) => {
     if (isSuccess) {
       toast.success("Review added successfully");
       dispatch(reset());
-      navigate("/home");
     }
   }, [isSuccess, isError, navigate, dispatch]);
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-      <div className="mb-1 tracking-wide px-4 py-4">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg text-center">
+      <div className="px-6 py-4">
         <div className="border-b -mx-8 px-8 pb-3">
           <div className="flex items-center mt-1"></div>
           <form
@@ -42,12 +41,8 @@ const AddReview = (props) => {
             onSubmit={handleSubmit(onSubmit)}
             method="POST"
           >
-            <label
-              htmlFor="review"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-            >
-              Your review
-            </label>
+            <div className="font-bold max-w-lg text-xl mb-2">Your review</div>
+
             <textarea
               id="review"
               rows="4"
@@ -58,7 +53,7 @@ const AddReview = (props) => {
 
             <button
               type="submit"
-              className="bg-gray-100 border border-gray-400 px-3 py-1 rounded  text-gray-800 mt-2"
+              className="text-grey-700 hover:bg-slate-200 font-bold py-2 px-4 rounded text-center"
             >
               Submit
             </button>

@@ -19,7 +19,7 @@ const AllReviews = () => {
 
   return (
     <div>
-      <div className=" text-center mt-20">
+      <div className=" text-center mt-10">
         <h1 className="font-bold lg:text-5xl md:text-3xl sm:text-2xl text-gray-900 mb-5">
           All Reviews
         </h1>

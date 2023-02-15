@@ -33,7 +33,7 @@ const RestCard = ({ props }) => {
           )}
           <button
             onClick={getAllReviewsHandler}
-            className="text-grey-700 hover:bg-slate-200 font-bold py-2 px-4 rounded"
+            className="text-gray-700 hover:bg-slate-200 font-bold py-2 px-4 rounded"
           >
             See all reviews
           </button>

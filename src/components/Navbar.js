@@ -47,8 +47,8 @@ const Navbar = () => {
                 </Link>
                 <button
                   onClick={logOutHandler}
-                  className="bg-indigo-600 px-4 py-2 rounded text-white
-                  hover:bg-indigo-500 text-sm"
+                  className="bg-blue-500 px-4 py-2 rounded text-white
+                  hover:bg-blue-600 text-sm"
                 >
                   LOGOUT
                 </button>
@@ -63,7 +63,7 @@ const Navbar = () => {
                 </Link>
                 <Link
                   to="/register"
-                  className="bg-indigo-600 px-4 py-2 rounded text-white hover:bg-indigo-500 text-sm"
+                  className="bg-blue-500 px-4 py-2 rounded text-white hover:bg-blue-600 text-sm"
                 >
                   REGISTER
                 </Link>
