@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+
 import { useForm } from "react-hook-form";
 
 import { cuisines } from "../../options/cuisines";
@@ -46,20 +46,20 @@ const FilterTable = (props) => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:grid-cols-1 sm:justify-center sm:items-center ">
-      <div className="flex items-center justify-around mt-4">
+    <div className="grid  grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:grid-cols-1 sm:justify-center sm:items-center  ">
+      <div className=" grid justify-items-end py-2 px-2">
         <button
           onClick={onClickReset}
           className="px-2 py-2 w-50% rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
         >
-          Reset Filter
+          Reset Filters
         </button>
       </div>
 
       <div className="mt-4">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4"
+          className="grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-4 mt-4 "
         >
           <select
             {...register("stars")}
@@ -98,7 +98,12 @@ const FilterTable = (props) => {
             Filter
           </button>
         </form>
-        <button onClick={getAllData}>Show All Restaurantes</button>
+        <button
+          className="text-gray-700 hover:bg-slate-200 font-bold py-1 px-6 rounded"
+          onClick={getAllData}
+        >
+          Show All Restaurantes
+        </button>
       </div>
     </div>
   );
