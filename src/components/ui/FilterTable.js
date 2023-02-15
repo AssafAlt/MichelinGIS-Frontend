@@ -46,26 +46,24 @@ const FilterTable = (props) => {
   };
 
   return (
-    <div className="w-full sm:h-30% shadow p-5 rounded bg-white">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:grid-cols-1 sm:justify-center sm:items-center ">
       <div className="flex items-center justify-between mt-4">
-        <p className="font-medium">Filters</p>
-
         <button
           onClick={onClickReset}
-          className="px-4 py-2  bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md"
+          className="px-2 py-2 w-50% rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
         >
           Reset Filter
         </button>
       </div>
 
-      <div>
+      <div className="mt-4">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4"
         >
           <select
             {...register("stars")}
-            className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+            className="px-4 py-2 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
           >
             <option value="">Stars</option>
             <option value="1">1</option>
@@ -75,7 +73,7 @@ const FilterTable = (props) => {
 
           <select
             {...register("cuisine")}
-            className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+            className="px-4 py-2 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
           >
             <option value="">Cuisine</option>
             {cuisines.map((cuisine) => (
@@ -85,7 +83,7 @@ const FilterTable = (props) => {
 
           <select
             {...register("city")}
-            className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+            className="px-4 py-2 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
           >
             <option value="">City</option>
             {cities.map((city) => (

@@ -24,7 +24,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Login />} />
           <Route path="/addrest" element={<AddPoint />} />
-          <Route path="/:restName" element={<AllReviews />} />
+          <Route path="/allreviews" element={<AllReviews />} />
         </Routes>
       </Suspense>
       <ToastContainer
