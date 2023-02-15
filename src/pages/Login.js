@@ -13,6 +13,7 @@ const Login = () => {
       buttonName="Login"
       createOrLogin="Create account"
       successMessage="Login successfully"
+      afterSuccess="/home"
       errorMessage="Login is failed, please try again"
     />
   );

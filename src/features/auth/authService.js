@@ -17,7 +17,8 @@ const registerUser = async ({ username, password }) => {
 const login = async ({ username, password }) => {
   const res = await axios.post(API_URL + "/login", { username, password });
   if (res.data) {
-    localStorage.setItem("user", JSON.parse(JSON.stringify(res.data)));
+    const user = res.data;
+    localStorage.setItem("user", JSON.parse(JSON.stringify(user)));
   }
   return res.data;
 };

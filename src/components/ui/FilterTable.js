@@ -47,7 +47,7 @@ const FilterTable = (props) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:grid-cols-1 sm:justify-center sm:items-center ">
-      <div className="flex items-center justify-between mt-4">
+      <div className="flex items-center justify-around mt-4">
         <button
           onClick={onClickReset}
           className="px-2 py-2 w-50% rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"

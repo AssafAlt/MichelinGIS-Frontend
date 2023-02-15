@@ -33,8 +33,18 @@ const Navbar = () => {
             </h1>
           </div>
           <div className="flex space-x-4 items-center">
+            {isAdmin && (
+              <>
+                <Link to="/addrest" className="text-gray-800 text-sm">
+                  ADD RESTAURANT
+                </Link>
+              </>
+            )}
             {user && (
               <>
+                <Link to="/home" className="text-gray-800 text-sm">
+                  MAP
+                </Link>
                 <button
                   onClick={logOutHandler}
                   className="bg-indigo-600 px-4 py-2 rounded text-white
@@ -44,13 +54,7 @@ const Navbar = () => {
                 </button>
               </>
             )}
-            {isAdmin && (
-              <>
-                <Link to="/addrest" className="text-gray-800 text-sm">
-                  ADD RESTAURANT
-                </Link>
-              </>
-            )}
+
             {!user && (
               <>
                 {" "}

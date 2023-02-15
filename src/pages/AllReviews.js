@@ -5,8 +5,6 @@ import ReviewCard from "../components/ui/ReviewCard";
 
 const AllReviews = () => {
   const [reviews, setReviews] = useState();
-  //const params = useParams();
-  //const splittedName = params.restName?.replace("20%", " ");
   const location = useLocation();
 
   useEffect(() => {
