@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { addRest } from "../features/points/pointSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { addRest, reset } from "../features/points/pointSlice";
 import { cuisines } from "../options/cuisines";
 import { cities } from "../options/cities";
 
@@ -19,6 +21,21 @@ const AddPoint = () => {
     },
   });
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+  const { isSuccess, isError } = useSelector((state) => state.point);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error("Failed to add restaurant, please try again");
+      dispatch(reset());
+    }
+    if (isSuccess) {
+      toast.success("Restaurant added successfully");
+      dispatch(reset());
+      navigate("/home");
+    }
+  }, [isSuccess, isError, navigate, dispatch]);
 
   const onSubmit = (data) => {
     dispatch(addRest(data));
@@ -69,7 +86,7 @@ const AddPoint = () => {
             <select
               name="city"
               placeholder="user@email.com"
-              className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600"
+              className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-blue-600 :ring-indigo-600"
               {...register("city")}
             >
               <option value="">City</option>
@@ -81,7 +98,7 @@ const AddPoint = () => {
           <div className="">
             <select
               name="region"
-              className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600"
+              className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-blue-600 :ring-indigo-600"
               {...register("region")}
             >
               <option value="">Country</option>
@@ -94,7 +111,7 @@ const AddPoint = () => {
             <select
               name="cuisine"
               placeholder="user@email.com"
-              className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600"
+              className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-blue-600 :ring-indigo-600"
               {...register("cuisine")}
             >
               <option value="">Cuisine</option>
@@ -112,7 +129,7 @@ const AddPoint = () => {
               name="url"
               id="url"
               placeholder="www.restaurantwebsite.com"
-              className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600"
+              className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-blue-600 :ring-indigo-600"
               {...register("url")}
             />
           </div>
@@ -131,7 +148,7 @@ const AddPoint = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="cursor-pointer py-2 px-4 block mt-2 bg-indigo-500 text-white font-bold w-25% text-center rounded"
+            className="cursor-pointer py-2 px-4 block mt-2 bg-blue-500 hover:bg-blue-600 text-white font-bold w-25% text-center rounded"
           >
             Add Resturant
           </button>

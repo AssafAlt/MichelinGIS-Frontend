@@ -36,10 +36,10 @@ const AuthCard = (props) => {
     }
   }, [isSuccess, isError, navigate, dispatch]);
   return (
-    <div className="h-[100%] bg-gray-100 flex justify-center">
-      <div className="py-6 px-8 max-2-sm max-2-lg mt-10 bg-white rounded shadow-xl">
+    <div className="h-[100%]  flex justify-center">
+      <div className="py-6 px-8 max-2-sm max-2-lg mt-10 rounded shadow-xl border border-blue-500">
         <form
-          className="space-y-6"
+          className="space-y-6 "
           onSubmit={handleSubmit(onSubmit)}
           method="POST"
         >
@@ -53,7 +53,7 @@ const AuthCard = (props) => {
               name="email"
               id="email"
               placeholder="user@email.com"
-              className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600"
+              className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-blue-600 :ring-blue-600"
               {...register("username")}
             />
           </div>
@@ -64,12 +64,12 @@ const AuthCard = (props) => {
               name="password"
               id="password"
               placeholder="******"
-              className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600"
+              className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-blue-600 :ring-blue-600"
               {...register("password")}
             />
             <button
               type="submit"
-              className="cursor-pointer py-2 px-4 block mt-6 bg-indigo-500 text-white font-bold w-full text-center rounded"
+              className="cursor-pointer py-2 px-4 block mt-6 bg-blue-500 hover:bg-blue-600 text-white font-bold w-full text-center rounded"
             >
               {props.buttonName}
             </button>

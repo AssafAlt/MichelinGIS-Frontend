@@ -3,7 +3,7 @@ import React from "react";
 const ReviewCard = ({ props }) => {
   return (
     <div className="max-w-lg mx-auto">
-      <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5">
+      <div className="bg-white shadow-md border border-blue-200 rounded-lg max-w-sm mb-5">
         <div className="p-5">
           <h5 className="text-gray-900 font-bold tracking-tight mb-2 text-sm">
             Reviewer:{" "}

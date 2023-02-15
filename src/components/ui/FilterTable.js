@@ -90,7 +90,13 @@ const FilterTable = (props) => {
               <option value={city}>{city}</option>
             ))}
           </select>
-          <button type="submit">Filter</button>
+
+          <button
+            type="submit"
+            className="text-gray-700 hover:bg-slate-200 font-bold py-2 px-4 rounded"
+          >
+            Filter
+          </button>
         </form>
         <button onClick={getAllData}>Show All Restaurantes</button>
       </div>
