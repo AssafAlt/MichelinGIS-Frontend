@@ -16,21 +16,19 @@ const Navbar = () => {
   };
   useEffect(() => {
     if (user) {
-      console.log(user.user);
       if (user.user === "admin@admin.com") {
         setIsAdmin(true);
       }
     }
-
-    console.log(isAdmin);
   }, [dispatch, user]);
 
   return (
     <nav>
       <div className="">
-        <div className="flex justify-between h-16 px-10 shadow items-center">
-          <div className="flex items-center space-x-8">
-            <h1 className="text-xl lg:text-2xl font-bold cursor-pointer">
+        <div className="flex justify-between h-16 px-5 shadow items-center">
+          <div className="flex items-center space-x-4">
+            <img style={{ width: "50px" }} src="/gis_logo.png" alt="" />
+            <h1 className="text-xl lg:text-2xl ml-8 font-bold cursor-pointer">
               MichelinGIS
             </h1>
           </div>

@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
+import ReviewCard from "../components/ui/ReviewCard";
 
 const AllReviews = () => {
   const [reviews, setReviews] = useState();
-  const params = useParams();
-  const splittedName = params.restName?.replace("20%", " ");
+  //const params = useParams();
+  //const splittedName = params.restName?.replace("20%", " ");
+  const location = useLocation();
 
   useEffect(() => {
     const fetchReviews = async () => {
       const response = await axios.post(
-        "http://localhost:5000/reviews/allreviews",
-        splittedName
+        `http://localhost:5000/reviews/allreviews?restId=${location.state.id}`
       );
       await setReviews(response.data);
     };
@@ -20,10 +21,14 @@ const AllReviews = () => {
 
   return (
     <div>
-      <h1>{splittedName}</h1>
-      <div>
-        {reviews.map((review) => (
-          <p>review.reviewer_name</p>
+      <div className=" text-center mt-20">
+        <h1 className="font-bold lg:text-5xl md:text-3xl sm:text-2xl text-gray-900 mb-5">
+          All Reviews
+        </h1>
+        {reviews?.map((review) => (
+          <div className="flex flex-row">
+            <ReviewCard props={review} />
+          </div>
         ))}
       </div>
     </div>

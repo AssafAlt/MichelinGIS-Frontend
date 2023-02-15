@@ -7,7 +7,7 @@ const RestCard = ({ props }) => {
   const navigate = useNavigate();
 
   const getAllReviewsHandler = () => {
-    navigate(`/${props.name}`);
+    navigate("/allreviews", { state: { id: props._id } });
   };
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg">
@@ -33,6 +33,9 @@ const RestCard = ({ props }) => {
           >
             See all reviews
           </button>
+          <a href={props.url} target="_blank" rel="noreferrer">
+            To Restaurant Page
+          </a>
         </div>
       </div>
     </div>
