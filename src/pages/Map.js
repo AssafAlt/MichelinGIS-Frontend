@@ -19,6 +19,7 @@ const Map = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log(user);
     if (!user) {
       navigate("/");
     }

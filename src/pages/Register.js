@@ -13,6 +13,7 @@ const Register = () => {
       buttonName="Register"
       createOrLogin="Login"
       successMessage="Registered successfully"
+      afterSuccess="/"
       errorMessage="Register is failed, please try again"
     />
   );

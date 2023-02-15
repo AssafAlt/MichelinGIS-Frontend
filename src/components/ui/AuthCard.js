@@ -32,7 +32,7 @@ const AuthCard = (props) => {
     if (isSuccess) {
       toast.success(props.successMessage);
       dispatch(reset());
-      navigate("/home");
+      navigate(props.afterSuccess);
     }
   }, [isSuccess, isError, navigate, dispatch]);
   return (
